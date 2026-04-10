@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: #ede7df;
+  }
+
+  body {
+    @apply text-[#1F1F1B];
+    font-family: "Inter", sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(181, 122, 91, 0.08), transparent 26%),
+      radial-gradient(circle at right 20%, rgba(102, 120, 95, 0.12), transparent 22%),
+      linear-gradient(180deg, #f1ece5 0%, #ede7df 100%);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image:
+      linear-gradient(rgba(31, 31, 27, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31, 31, 27, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+  }
+}
+
+@layer components {
+  .editorial-shell {
+    background: #faf8f4;
+    border: 1px solid #ddd6cc;
+    box-shadow:
+      0 24px 80px rgba(71, 59, 42, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+
+  .card-glow {
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease,
+      border-color 220ms ease,
+      opacity 220ms ease;
+  }
+
+  .card-glow:hover {
+    transform: translateY(-4px);
+    border-color: rgba(102, 120, 95, 0.32);
+    box-shadow: 0 16px 36px rgba(102, 120, 95, 0.14);
+  }
+
+  .section-reveal {
+    animation: sectionReveal 700ms ease both;
+  }
+
+  .serif-display {
+    font-family: "Instrument Serif", serif;
+  }
+
+  .noise-overlay {
+    background-image:
+      radial-gradient(rgba(255, 255, 255, 0.12) 0.6px, transparent 0.8px),
+      radial-gradient(rgba(255, 255, 255, 0.06) 0.4px, transparent 0.8px);
+    background-position: 0 0, 10px 12px;
+    background-size: 16px 16px, 24px 24px;
+  }
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

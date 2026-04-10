@@ -1,0 +1,199 @@
+.fade-rise {
+  animation: fade-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fade-rise-delay {
+  animation: fade-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.fade-rise-delay-2 {
+  animation: fade-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+.slow-float {
+  animation: slow-float 12s ease-in-out infinite alternate;
+}
+
+.sway {
+  animation: sway 4.6s ease-in-out infinite alternate;
+}
+
+.drift {
+  animation: drift 8s ease-in-out infinite;
+}
+
+.pulse-soft {
+  animation: pulse-soft 4s ease-in-out infinite;
+}
+
+.twinkle {
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+.fox-ride {
+  animation: fox-ride 18s linear infinite;
+}
+
+.animate-fade-rise {
+  animation: fade-rise 0.8s ease-out both;
+}
+
+.animate-fade-rise-delay {
+  animation: fade-rise 0.8s ease-out 0.2s both;
+}
+
+.animate-fade-rise-delay-2 {
+  animation: fade-rise 0.8s ease-out 0.4s both;
+}
+
+.animate-drift {
+  animation: drift 14s linear infinite alternate;
+}
+
+.animate-float-up {
+  animation: float-up 8s ease-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 9s linear infinite alternate;
+}
+
+.leaf-sway {
+  animation: sway 5.6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.canyon-drift {
+  animation: canyon-drift 18s ease-in-out infinite alternate;
+}
+
+.canyon-drift-slow {
+  animation: canyon-drift 24s ease-in-out infinite alternate;
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slow-float {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(36px, 8px, 0);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(1.5deg) translateY(-2px);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(40px);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(-36px);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes canyon-drift {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(18px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes fox-ride {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+
+  25% {
+    transform: translateX(30vw) translateY(-4px);
+  }
+
+  50% {
+    transform: translateX(52vw) translateY(2px);
+  }
+
+  75% {
+    transform: translateX(76vw) translateY(-3px);
+  }
+
+  100% {
+    transform: translateX(104vw) translateY(0);
+  }
+}
