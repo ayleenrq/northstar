@@ -71,6 +71,10 @@
   animation: canyon-drift 24s ease-in-out infinite alternate;
 }
 
+.visual-orbit {
+  animation: visual-orbit 6s ease-in-out infinite;
+}
+
 @keyframes fade-rise {
   from {
     opacity: 0;
@@ -195,5 +199,16 @@
 
   100% {
     transform: translateX(104vw) translateY(0);
+  }
+}
+
+@keyframes visual-orbit {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0);
   }
 }

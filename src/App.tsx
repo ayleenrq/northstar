@@ -6,7 +6,7 @@ type NavItem = {
 }
 
 type CapabilityCard = {
-  icon: string
+  image: string
   title: string
   description: string
 }
@@ -15,8 +15,7 @@ type ShowcaseCard = {
   label: string
   title: string
   description: string
-  gradient: string
-  artwork: string
+  image: string
 }
 
 const navItems: NavItem[] = [
@@ -28,32 +27,32 @@ const navItems: NavItem[] = [
 
 const capabilities: CapabilityCard[] = [
   {
-    icon: '01',
+    image: 'https://images.unsplash.com/photo-1507925922837-326f866ce5ee?auto=format&fit=crop&w=800&q=80',
     title: 'Align campaign timelines across teams',
     description: 'Turn overlapping requests, launches, and milestones into one shared rhythm everyone can trust.',
   },
   {
-    icon: '02',
+    image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80',
     title: 'Shape rough notes into structured plans',
     description: 'Convert brainstorms, docs, and scattered ideas into action-ready briefs with clear owners and timing.',
   },
   {
-    icon: '03',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
     title: 'Track project health without extra meetings',
     description: 'Surface blockers, momentum shifts, and delivery confidence through quiet signals across every initiative.',
   },
   {
-    icon: '04',
+    image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=800&q=80',
     title: 'Generate polished client-ready briefs',
     description: 'Compose crisp summaries, creative scopes, and next steps that are easy to share internally or externally.',
   },
   {
-    icon: '05',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
     title: 'Capture ideas from chats and calls',
     description: 'Pull important context from conversations so valuable thinking never disappears into message threads.',
   },
   {
-    icon: '06',
+    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
     title: 'Build weekly recaps automatically',
     description: 'Create elegant updates that reflect progress, open questions, and decisions without manual chasing.',
   },
@@ -64,22 +63,19 @@ const showcaseCards: ShowcaseCard[] = [
     label: 'For Studios',
     title: 'Keep every project moving without flattening the creative process.',
     description: 'Plan campaigns, manage handoffs, and keep delivery calm from kickoff through client review.',
-    gradient: 'from-[#5E6E56] via-[#87947E] to-[#D8D0C4]',
-    artwork: 'Layered boards, editorial notes, and timeline markers framed like a portfolio wall.',
+    image: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1200&q=80',
   },
   {
     label: 'For Brand Teams',
     title: 'Give fast-moving launches a source of truth that still feels intuitive.',
     description: 'Coordinate content, stakeholders, and approvals in one environment designed for clarity over noise.',
-    gradient: 'from-[#B57A5B] via-[#D8B59A] to-[#F0E7DB]',
-    artwork: 'Soft clay gradients with campaign modules and translucent review cards floating above.',
+    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=80',
   },
   {
     label: 'For Strategy Leads',
     title: 'See priorities, risk, and momentum at the altitude leadership needs.',
     description: 'Translate messy operating reality into crisp signals, weekly recaps, and sharper planning conversations.',
-    gradient: 'from-[#7F7B67] via-[#A7A18C] to-[#EFE7DC]',
-    artwork: 'Muted landscape textures with directional paths and structured checkpoints layered on top.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
   },
 ]
 
@@ -133,18 +129,20 @@ function App() {
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {capabilities.map((capability) => (
               <article
-                key={capability.icon}
-                className="card-glow rounded-[24px] border border-[#DDD6CC] bg-white/55 p-5"
+                key={capability.title}
+                className="card-glow flex flex-col overflow-hidden rounded-[24px] border border-[#DDD6CC] bg-white/55"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ede7df] text-sm font-medium text-[#66785F]">
-                  {capability.icon}
+                <div className="h-48 w-full border-b border-[#DDD6CC]">
+                  <img src={capability.image} alt={capability.title} className="h-full w-full object-cover" />
                 </div>
-                <h3 className="mt-5 text-lg font-medium tracking-[-0.02em] text-[#1F1F1B]">
-                  {capability.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-[#6F6A63]">
-                  {capability.description}
-                </p>
+                <div className="p-6">
+                  <h3 className="text-lg font-medium tracking-[-0.02em] text-[#1F1F1B]">
+                    {capability.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-[#6F6A63]">
+                    {capability.description}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
@@ -164,17 +162,8 @@ function App() {
                 key={card.label}
                 className="card-glow overflow-hidden rounded-[26px] border border-[#DDD6CC] bg-[#F6F2EB]"
               >
-                <div className={`h-56 bg-gradient-to-br ${card.gradient} p-5`}>
-                  <div className="flex h-full flex-col justify-between rounded-[22px] border border-white/35 bg-white/12 p-4 backdrop-blur-[2px]">
-                    <div className="flex items-center gap-2">
-                      <span className="h-2.5 w-2.5 rounded-full bg-white/90" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-white/50" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-white/35" />
-                    </div>
-                    <p className="max-w-[24ch] text-sm leading-6 text-[#FAF8F4]">
-                      {card.artwork}
-                    </p>
-                  </div>
+                <div className="h-64 w-full border-b border-[#DDD6CC]">
+                  <img src={card.image} alt={card.title} className="h-full w-full object-cover" />
                 </div>
 
                 <div className="p-6">
